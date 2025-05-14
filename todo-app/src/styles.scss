@@ -1,0 +1,136 @@
+@use '@angular/material' as mat;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.todo-wrapper {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #f7f3ef;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.todo-input-group {
+  display: flex;
+  gap: 0.5rem;
+
+  input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 1.5rem;
+    border: none;
+    background: #ede7e1;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  button {
+    background: #63bcd5;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #4eaac4;
+    }
+  }
+}
+
+.todo-list {
+  margin-top: 1.5rem;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border-bottom: 1px solid #b9d4de;
+  padding: 0.75rem 0;
+
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .custom-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &.checked {
+      background-color: #f28c28;
+      border-color: #f28c28;
+      position: relative;
+
+      &::after {
+        content: '✓';
+        color: white;
+        font-size: 16px;
+        position: absolute;
+        top: 0;
+        left: 6px;
+      }
+    }
+  }
+
+  .task-text {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  &.completed .task-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #d88a8a;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #c33;
+    }
+  }
+}
+
+.clear-completed {
+  margin-top: 1.5rem;
+  text-align: right;
+
+  button {
+    background: none;
+    border: none;
+    color: #d88a8a;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .icon {
+      font-size: 1.2rem;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

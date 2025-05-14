@@ -1,0 +1,32 @@
+<div class="todo-wrapper">
+  <form (ngSubmit)="addTodo()" class="todo-input-group">
+    <input
+      type="text"
+      placeholder="What do you need to do?"
+      [(ngModel)]="newTodo"
+      name="newTodo"
+      required
+    />
+    <button type="submit">ADD</button>
+  </form>
+
+  <div class="todo-list">
+    <div *ngFor="let todo of todos" class="todo-item" [class.completed]="todo.completed">
+      <div class="left-section">
+        <div
+          class="custom-checkbox"
+          [class.checked]="todo.completed"
+          (click)="markComplete(todo)"
+        ></div>
+        <span class="task-text">{{ todo.title }}</span>
+      </div>
+      <button class="delete-btn" (click)="deleteTodo(todo.id!)">🗑️</button>
+    </div>
+  </div>
+
+  <div class="clear-completed" *ngIf="completedTodos">
+    <button (click)="clearCompleted()">
+      <span class="icon">🧹</span> Clear Completed
+    </button>
+  </div>
+</div>
